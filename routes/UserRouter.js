@@ -1,10 +1,10 @@
 const Router = require('express').Router()
-const UserController = require('../backend/controllers/UserController')
+const UserController = require('../controllers/UserController')
 const {
   getToken,
   createToken,
   verifyToken
-} = require('../backend/middleware/JwtHandler')
+} = require('../middleware/JwtHandler')
 
 Router.get('/:user_id', UserController.GetProfile)
 Router.post('/register', UserController.CreateUser)
