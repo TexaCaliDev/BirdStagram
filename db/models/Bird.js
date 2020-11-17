@@ -3,24 +3,26 @@ const {Schema} = require('mongoose')
 module.exports = new Schema(
     {
         picture: {
-            type: String ,
-
-        },
-        name: {
             type: String,
-            required: true,
+        },
+        user_id: {
+            type: Schema.Types.ObjectId,
+            ref: 'users'
+        },
+        bird_name: {
+            type: String
         },
         description: {
-            type: String,
-            required: true
+            type: String
         },
-        region: {
+        range: {
             type: String,
-            required: true
         },
-        rarity: {
-            type: Number,
-            required: true
+        prey: {
+            type: String
+        },
+        nesting: {
+            type: String
         }
     }
 )
