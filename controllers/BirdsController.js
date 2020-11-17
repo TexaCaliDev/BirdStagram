@@ -26,22 +26,7 @@ const GetBirdById = async (req, res) => {
     }
   }
 
-// const CreateBird = async (req, res) => {
-//     try{
-//         // const bird = await new Bird(req.body)
-//         // const body = req.body
-//         // const bird = new Bird({
-//         //     name: body.name,
-//         //     description: body.description,
-//         //     region: body.region,
-//         //     rarity: body.rarity
-//         // })
-//         bird.save()
-//         res.send(bird)
-//     }catch(error){
-//         throw new error('cannot create bird')
-//     }
-// }
+
 
 const CreateBird = async (request, response) => {
     try {
@@ -63,10 +48,28 @@ const DeleteBird = async (req, res ) => {
     }
 }
 
+const UpdateBird = async (req, res) => {
+    try {
+      await Bird.findByIdAndUpdate(
+        req.params.bird_id,
+        {
+          ...req.body
+        },
+        { new: true, useFindAndModify: false }
+
+      )
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
+
   module.exports = {
       CreateBird,
       GetBird,
       DeleteBird,
-      GetBirdById
+      GetBirdById,
+      UpdateBird
   }
 
