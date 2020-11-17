@@ -1,5 +1,5 @@
 
-const { User} = require('../../db/schema')
+const { User} = require('../db/schema')
 const jwt = require('jsonwebtoken')
 const {
   checkPassword,
