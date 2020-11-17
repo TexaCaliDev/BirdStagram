@@ -2,7 +2,7 @@ const {
     Post,
     User,
     Bird
-  } = require('../../db/schema')
+  } = require('../db/schema')
   
   const GetPosts = async (req, res) => {
     try {
@@ -44,8 +44,9 @@ const {
         user_id: req.params.user_id,
         bird_name: req.body.bird_name,
         description: req.body.description,
-        range: req.body.region,
-        rarity: req.body.rarity
+        range: req.body.range,
+        prey: req.body.prey,
+        nesting: req.body.nesting
       })
       await post.save()
       await User.findByIdAndUpdate(req.params.user_id, {
