@@ -5,10 +5,7 @@ module.exports = new Schema(
         picture: {
             type: String,
         },
-        user_id: {
-            type: Schema.Types.ObjectId,
-            ref: 'users'
-        },
+    
         bird_name: {
             type: String
         },
