@@ -32,6 +32,24 @@ export default class ViewPost extends Component {
           throw error
       }
   }
+  
+   UpdatePost = async (req, res) => {
+    try {
+      await this.state.post.findByIdAndUpdate(
+        req.params.post_id, {
+          ...req.body
+        }, {
+          new: true,
+          useFindAndModify: false
+        },
+  
+      )
+    } catch (error) {
+      throw error
+    }
+  }
+  
+
 
   render() {
     const { post } = this.state
@@ -51,8 +69,8 @@ export default class ViewPost extends Component {
                 <p>{post.range}</p>
                 <p>{post.prey}</p>
                 <p>{post.nesting}</p>
-                <button onClick={__DeletePost}></button>
-                <button onClick={__UpdatePosts}></button>
+                <button onClick={deletePost}></button>
+                <button onClick={UpdatePost}></button>
               </div>
       
             </div>

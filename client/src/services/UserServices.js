@@ -3,12 +3,12 @@ import ApiClient from './ApiClient'
 export const __GetProfile = async (userId) => {
   try {
     const res = await ApiClient.get(`/users/${userId}`)
+    console.log(res.data,'Look here!!!')
     return res.data
   } catch (error) {
     throw error
   }
 }
-
 export const __RegisterUser = async (formData) => {
   try {
     const res = await ApiClient.post('/users/register', formData)

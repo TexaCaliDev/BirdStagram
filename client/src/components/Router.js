@@ -6,8 +6,10 @@ import Profile from '../pages/Profile'
 import SignIn from '../pages/SignIn'
 import Signup from '../pages/SignUp'
 import {__CheckSession} from '../services/UserServices'
-import ViewPost from '../pages/ViewPost'
+// import ViewPost from '../pages/ViewPost'
 import CreatePost from '../pages/CreatePost'
+import UpdatePost from '../pages/UpdatePost'
+import ProtectedRoute from '../components/ProtectedRoute'
 
 class Router extends Component {
     constructor(){
@@ -73,11 +75,18 @@ class Router extends Component {
                     toggleAuthenticated={this.toggleAuthenticated}
                     {...props}
                   />
-                
-              )}
-            />
+                  
+                  )}
+                  />
+                  
+                  <Route path="/posts/update" component={(props) => {
+                    <UpdatePost {...props} />
+                  }} />
+
+                  
+                  
                  
-                   
+                  
                 </Switch>
             </main>
         )

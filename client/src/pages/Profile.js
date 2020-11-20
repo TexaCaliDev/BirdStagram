@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import Card from '../components/Card'
-// import { __GetProfile } from '../services/UserServices'
+import { __GetProfile } from '../services/UserServices'
 import {__GetPosts, __DeletePost} from '../services/PostServices'
 import Nav from "../components/Nav"
 
@@ -17,6 +17,7 @@ export default class Profile extends Component {
 
   componentDidMount() {
     this.getPosts()
+    
   }
 
   getPosts = async () => {
@@ -39,21 +40,21 @@ export default class Profile extends Component {
       throw error
     }
   }
-
+// run get profile here from user services
 
   render() {
     return (
       <div className="profile">
         <Nav />
         <div>
-         <button onClick={() => this.props.history.push('/posts/create/:user_id')}>create</button>
+         <button onClick={() => this.props.history.push(`/posts/create/user_id`)}>create</button>
           {this.state.posts.length ? (
             <div className="post-content wrapper flex-row">
               {this.state.posts.map((post) => (
                 <div key={post._id}>
                   <div
                     onClick={() =>
-                      this.props.history.push(`/posts/${post._id}`)
+                      this.props.history.push(`/posts/update`)
                     }
                   >
                     <div className="mask flex-col">
@@ -64,6 +65,7 @@ export default class Profile extends Component {
                         <p>{post.description}</p>
                         <p>{post.range}</p>
                         <p>{post.Prey}</p>
+                        <p>{post.nesting}</p>
 
                     </div>
                     </div>
@@ -71,7 +73,7 @@ export default class Profile extends Component {
                   <div className="flex-row button-wrapper">
                     <button
                       onClick={() =>
-                        this.props.history.push(`/edit/${post._id}`)}>
+                        this.props.history.push(`/posts/update`)}>
                       Edit
                     </button>
                     <button onClick={() => __DeletePost(post._id)}>
