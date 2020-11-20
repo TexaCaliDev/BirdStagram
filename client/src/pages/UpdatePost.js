@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
-import { __GetPosts, __UpdatePosts } from '../services/PostServices'
+import { __GetPost, __UpdatePosts } from '../services/PostServices'
 export default class UpdatePost extends Component {
   constructor() {
     super()
@@ -18,7 +18,7 @@ export default class UpdatePost extends Component {
   }
   getPost = async () => {
     try {
-      const post = await __GetPosts(this.props.match.params.post_id)
+      const post = await __GetPost(this.props.match.params.post_id)
       console.log(this.props,"Look Here")
       this.setState({
         picture: post.picture,

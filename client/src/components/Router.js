@@ -78,10 +78,15 @@ class Router extends Component {
                   
                   )}
                   />
-                  
-                  <Route path="/posts/update" component={(props) => {
-                    <UpdatePost {...props} />
-                  }} />
+                  <Route path="/posts/update/:post_id"
+                  render={(props) => <UpdatePost {...props} />}/>
+       
+        
+        
+        
+        
+        
+        
 
                   
                   

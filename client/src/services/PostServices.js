@@ -33,17 +33,26 @@ export const __DeletePost = async (post_id) => {
 
 
 
-export const __UpdatePosts = async (formData, post_id) => {
+export const __UpdatePosts = async (formData, postId) => {
     try{
-        const res = await ApiClient.put(`/posts/update`, formData)
+        const res = await ApiClient.put(`/posts/update/${postId}`, formData)
         return res.data
     }catch(error){
         throw error
     }
 }
 
-// export const __Post = async (formData, userId) => {
-//     try{}catch(error){
-//         throw error
-//     }
-// }
+export const __GetPost = async (postId) => {
+    try {
+      const res = await ApiClient.get(`/posts/${postId}`)
+      return res.data
+    } catch (error) {
+      throw error
+    }
+  }
+
+
+
+
+
+

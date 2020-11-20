@@ -54,7 +54,7 @@ export default class Profile extends Component {
                 <div key={post._id}>
                   <div
                     onClick={() =>
-                      this.props.history.push(`/posts/update`)
+                      this.props.history.push(`/posts/${post._id}`)
                     }
                   >
                     <div className="mask flex-col">
@@ -73,7 +73,7 @@ export default class Profile extends Component {
                   <div className="flex-row button-wrapper">
                     <button
                       onClick={() =>
-                        this.props.history.push(`/posts/update`)}>
+                        this.props.history.push(`/posts/update/${post._id}`)}>
                       Edit
                     </button>
                     <button onClick={() => __DeletePost(post._id)}>

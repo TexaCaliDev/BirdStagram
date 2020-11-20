@@ -88,6 +88,7 @@ const {
         },
   
       )
+      console.log(res.data)
     } catch (error) {
       throw error
     }
