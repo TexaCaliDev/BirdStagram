@@ -1,16 +1,17 @@
 
-const { User} = require('../db/schema')
+const { User, Post} = require('../db/schema')
 const jwt = require('jsonwebtoken')
 const {
   checkPassword,
   generatePassword
 } = require('../middleware/PasswordHandler')
 
+
 const GetProfile = async (req, res) => {
   try {
     const user = await User.findById(req.params.user_id)
-   
-    res.send({ user})
+   const posts = await Post.find({user_id: req.params.user_id})
+    res.send({ user, posts})
   } catch (error) {
     throw error
   }

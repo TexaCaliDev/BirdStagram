@@ -21,19 +21,26 @@ export const __GetPosts = async (page, limit) => {
     }
 }
 
-export const __DeletePost = async (formData, userId) => {
+
+export const __DeletePost = async (formData, post_id) => {
     try{
-        
+        const res = await ApiClient.delete(`/posts/${post_id}?active=true`)
+        return res
     }catch(error){
         throw error
     }
 }
 
-// export const __Post = async (formData, userId) => {
-//     try{}catch(error){
-//         throw error
-//     }
-// }
+
+
+export const __UpdatePosts = async (formData, post_id) => {
+    try{
+        const res = await ApiClient.put(`/posts/${post_id}?active=true`, formData)
+        return res.data
+    }catch(error){
+        throw error
+    }
+}
 
 // export const __Post = async (formData, userId) => {
 //     try{}catch(error){

@@ -6,7 +6,7 @@ import Profile from '../pages/Profile'
 import SignIn from '../pages/SignIn'
 import Signup from '../pages/SignUp'
 import {__CheckSession} from '../services/UserServices'
-// import ViewPost from '../pages/ViewPost'
+import ViewPost from '../pages/ViewPost'
 import CreatePost from '../pages/CreatePost'
 
 class Router extends Component {
@@ -62,7 +62,7 @@ class Router extends Component {
                     />
                     < Route path="/birds/" component={Birds}/>
                      < Route path="/users/register" component={Signup} />
-                     < Route path="/users/posts" component={(props) => ( <Profile{...props}/> )} />
+                     < Route  authenticated={this.state.authenticated} path="/users/posts" component={(props) => ( <Profile{...props} currentUser={this.state.currentUser} /> )} />
                      <Route  path='/posts/create/:user_id' component={(props) => ( <CreatePost{...props} currentUser={this.state.currentUser} authenticated={this.state.authenticated} />) } />
 
                      <Route

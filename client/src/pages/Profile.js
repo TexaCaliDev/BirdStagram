@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 // import Card from '../components/Card'
-// import { __DeletePost } from '../services/PostServices'
-import { __GetProfile } from '../services/UserServices'
-import {__GetPosts} from '../services/PostServices'
+// import { __GetProfile } from '../services/UserServices'
+import {__GetPosts, __DeletePost} from '../services/PostServices'
 import Nav from "../components/Nav"
+
 
 export default class Profile extends Component {
   constructor() {
@@ -30,15 +30,16 @@ export default class Profile extends Component {
     }
   }
 
-//   deletePost = async (id) => {
-//     try {
-//       const postsToKeep = this.state.posts.filter((post) => post._id !== id)
-//       this.setState({ posts: postsToKeep })
-//       await __DeletePost(id)
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   }
+  deletePosts = async (id) => {
+    try{
+      const postsToKeep = this.state.posts.filter((post)  => post._id !== id)
+      this.setState({posts: postsToKeep})
+      await __DeletePost(id)
+    } catch (error){
+      throw error
+    }
+  }
+
 
   render() {
     return (
@@ -59,7 +60,7 @@ export default class Profile extends Component {
                       <div className="card-content">
                       
                         <h3>{post.bird_name}</h3>
-                        <img src="{post.picture}"></img>                    
+                        <img src="{post.picture}" alt="{post.bird_name"></img>                    
                         <p>{post.description}</p>
                         <p>{post.range}</p>
                         <p>{post.Prey}</p>
@@ -73,7 +74,7 @@ export default class Profile extends Component {
                         this.props.history.push(`/edit/${post._id}`)}>
                       Edit
                     </button>
-                    <button onClick={() => this.deletePost(post._id)}>
+                    <button onClick={() => __DeletePost(post._id)}>
                       Delete
                     </button>
                   </div>

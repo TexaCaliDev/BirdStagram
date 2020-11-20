@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { __GetPosts } from '../services/PostServices'
+
+import { __DeletePost, __GetPosts, __UpdatePosts } from '../services/PostServices'
 // import '../styles/PostView.css'
 export default class ViewPost extends Component {
   constructor() {
@@ -23,6 +23,16 @@ export default class ViewPost extends Component {
     }
   }
 
+  deletePost = async (id) => {
+      try{
+        const postsToKeep = this.state.posts.filter((post) => post._id !== id)
+        this.setState({ posts: postsToKeep })
+        await __DeletePost(id)
+      } catch(error){
+          throw error
+      }
+  }
+
   render() {
     const { post } = this.state
     if (this.state.post) {
@@ -41,7 +51,8 @@ export default class ViewPost extends Component {
                 <p>{post.range}</p>
                 <p>{post.prey}</p>
                 <p>{post.nesting}</p>
-              
+                <button onClick={__DeletePost}></button>
+                <button onClick={__UpdatePosts}></button>
               </div>
       
             </div>

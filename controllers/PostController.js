@@ -1,3 +1,4 @@
+const { post } = require('../db/models/User')
 const {
     Post,
     User,
@@ -58,6 +59,7 @@ const {
       //   upsert: true,
       //   new: true
       // })
+      console.log(post)
       res.send(post)
     } catch (error) {
       throw error
@@ -65,27 +67,11 @@ const {
   }
   
   const DeletePost = async (req, res) => {
-    console.log(req.params.user_id)
+    
     try {
-      await Post.deleteOne({
-        _id: req.params.post_id
-      })
-      await User.findByIdAndUpdate(
-        req.params.user_id, {
-          $pull: {
-            posts: req.params.post_id
-          }
-        }, {
-          new: true,
-          upsert: true
-        },
-        (error, updatedPost) => {
-          if (error) {
-            console.log(error)
-          }
-          res.send(updatedPost)
-        }
-      )
+     const postDelete =  await Post.findByIdAndDelete(req.params.post_id)
+    console.log(postDelete)
+    res.send({msg: 'deleted'})
     } catch (error) {
       throw error
     }

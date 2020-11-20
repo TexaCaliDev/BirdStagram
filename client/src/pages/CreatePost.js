@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
-import { __UploadPost } from '../services/PostServices'
+import { __UploadPost, } from '../services/PostServices'
 
 export default class CreatePost extends Component {
   constructor() {
@@ -26,7 +26,7 @@ export default class CreatePost extends Component {
       await __UploadPost(this.state, this.props.currentUser._id)
       
       console.log(this.state,"log 1")
-      this.props.history.push('/users/posts')
+      this.props.history.push('/profile')
     } catch (error) {
       console.log(error)
     }
