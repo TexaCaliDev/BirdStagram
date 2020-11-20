@@ -28,6 +28,3 @@ ApiClient.interceptors.request.use(
 
 export default ApiClient
 
-process.env.NODE_ENV === 'production'
-  ? `${window.location.origin}/api`
-  : 'http://localhost:3004/api/api'

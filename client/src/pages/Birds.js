@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import "../styles/bird.css"
 import Nav from '../components/Nav'
-
 import {__GetAllBirds} from '../services/BirdServices'
 
 class Birds extends Component {

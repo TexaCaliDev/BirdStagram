@@ -14,7 +14,7 @@ class Nav extends Component {
             <NavLink to="/users/register">
                 Sign Up
             </NavLink>
-            <NavLink to="/users/login">
+            <NavLink to="/users/SignIn">
                 Sign In
             </NavLink>
             <NavLink to="/birds">
@@ -23,6 +23,7 @@ class Nav extends Component {
             <NavLink to="/">
                 Home
             </NavLink>
+            
         </nav>
            
         )

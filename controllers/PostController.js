@@ -40,23 +40,24 @@ const {
     try {
   
       const post = new Post({
-        picture: req.body.picture,
-        user_id: req.params.user_id,
-        bird_name: req.body.bird_name,
-        description: req.body.description,
-        range: req.body.range,
-        prey: req.body.prey,
-        nesting: req.body.nesting
+        ...req.body, user_id: req.params.user_id
+        // picture: req.body.picture,
+        // user_id: req.params.user_id,
+        // bird_name: req.body.bird_name,
+        // description: req.body.description,
+        // range: req.body.range,
+        // prey: req.body.prey,
+        // nesting: req.body.nesting
       })
-      await post.save()
-      await User.findByIdAndUpdate(req.params.user_id, {
-        $push: {
-          posts: post._id
-        }
-      }, {
-        upsert: true,
-        new: true
-      })
+       post.save()
+      // await User.findByIdAndUpdate(req.params.user_id, {
+      //   $push: {
+      //     posts: post._id
+      //   }
+      // }, {
+      //   upsert: true,
+      //   new: true
+      // })
       res.send(post)
     } catch (error) {
       throw error

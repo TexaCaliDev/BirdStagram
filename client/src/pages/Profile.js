@@ -3,13 +3,15 @@ import React, { Component } from 'react'
 // import { __DeletePost } from '../services/PostServices'
 import { __GetProfile } from '../services/UserServices'
 import {__GetPosts} from '../services/PostServices'
+import Nav from "../components/Nav"
 
 export default class Profile extends Component {
   constructor() {
     super()
     this.state = {
       postFetchError: false,
-      posts: []
+      posts: [],
+      currentPage: 1
     }
   }
 
@@ -20,8 +22,9 @@ export default class Profile extends Component {
   getPosts = async () => {
     try {
       console.log(this.props)
-      const profileData = await __GetPosts(this.props.currentUser._id)
-      this.setState({ posts: profileData.posts })
+      const profileData = await __GetPosts(this.state.currentPage)
+      // console.log(profileData.posts)
+      this.setState({ posts: [...this.state.posts, ...profileData] })
     } catch (error) {
       this.setState({ postFetchError: true })
     }
@@ -40,7 +43,9 @@ export default class Profile extends Component {
   render() {
     return (
       <div className="profile">
+        <Nav />
         <div>
+         <button onClick={() => this.props.history.push('/posts/create/:user_id')}>create</button>
           {this.state.posts.length ? (
             <div className="post-content wrapper flex-row">
               {this.state.posts.map((post) => (
@@ -52,14 +57,15 @@ export default class Profile extends Component {
                   >
                     <div className="mask flex-col">
                       <div className="card-content">
+                      
                         <h3>{post.bird_name}</h3>
+                        <img src="{post.picture}"></img>                    
                         <p>{post.description}</p>
                         <p>{post.range}</p>
                         <p>{post.Prey}</p>
 
                     </div>
                     </div>
-                    <img src={post.image_url} alt="selfy" />
                   </div>
                   <div className="flex-row button-wrapper">
                     <button

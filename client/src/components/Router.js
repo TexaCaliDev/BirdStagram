@@ -6,17 +6,23 @@ import Profile from '../pages/Profile'
 import SignIn from '../pages/SignIn'
 import Signup from '../pages/SignUp'
 import {__CheckSession} from '../services/UserServices'
+// import ViewPost from '../pages/ViewPost'
+import CreatePost from '../pages/CreatePost'
 
 class Router extends Component {
     constructor(){
         super()
         this.state = {
-            pageLoading: true
+          currentUser: null,
+          pageLoading: true,
+          authenticated: false
         }
     }
 
     componentDidMount(){
+        this.verifyTokenValid()
         this.setState({pageLoading: false})
+        
     }
 
     verifyTokenValid = async () => {
@@ -56,8 +62,8 @@ class Router extends Component {
                     />
                     < Route path="/birds/" component={Birds}/>
                      < Route path="/users/register" component={Signup} />
-                     {/* < Route path="/users/SignIn" component={SignIn} /> */}
-                     < Route path="/users/profile" component={Profile} />
+                     < Route path="/users/posts" component={(props) => ( <Profile{...props}/> )} />
+                     <Route  path='/posts/create/:user_id' component={(props) => ( <CreatePost{...props} currentUser={this.state.currentUser} authenticated={this.state.authenticated} />) } />
 
                      <Route
               path="/users/SignIn"
