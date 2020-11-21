@@ -1,9 +1,4 @@
-const { post } = require('../db/models/User')
-const {
-    Post,
-    User,
-    Bird
-  } = require('../db/schema')
+const {Post} = require('../db/schema')
   
   const GetPosts = async (req, res) => {
     try {
@@ -42,23 +37,10 @@ const {
   
       const post = new Post({
         ...req.body, user_id: req.params.user_id
-        // picture: req.body.picture,
-        // user_id: req.params.user_id,
-        // bird_name: req.body.bird_name,
-        // description: req.body.description,
-        // range: req.body.range,
-        // prey: req.body.prey,
-        // nesting: req.body.nesting
+       
       })
        post.save()
-      // await User.findByIdAndUpdate(req.params.user_id, {
-      //   $push: {
-      //     posts: post._id
-      //   }
-      // }, {
-      //   upsert: true,
-      //   new: true
-      // })
+
       console.log(post)
       res.send(post)
     } catch (error) {

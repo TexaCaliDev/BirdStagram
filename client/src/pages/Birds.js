@@ -33,13 +33,17 @@ class Birds extends Component {
                     <Nav />
                     <div className="info-wrapper flex-col">
                         { birds.length ? ( birds.map((bird) => (
-                           <div key={bird._id}> 
+                           <div className="card" key={bird._id}>
+                               <div className='picture-container'>
                            <img src={bird.picture} />
+                                </div> 
+                                <div className="info-container">
                             <h3>Bird Name:{bird.bird_name}</h3>
                             <p>Description:{bird.description}</p>
                             <p>Range:{bird.range}</p>
                             <p>Prey:{bird.prey}</p>
                             <p>Nesting:{bird.nesting}</p> 
+                                </div>
                            </div>    
                         )) 
                         ) : (<h3>No Birds</h3>)}

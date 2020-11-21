@@ -64,13 +64,13 @@ export default class ViewPost extends Component {
             </div>
             <div className="right-content col-2 flex-col">
               <div className="content-top">
+                  <img src={post.picture}/>
                 <h2>{post.bird_name}</h2>
                 <p>{post.description}</p>
                 <p>{post.range}</p>
-                <p>{post.prey}</p>
                 <p>{post.nesting}</p>
-                <button onClick={deletePost}></button>
-                <button onClick={UpdatePost}></button>
+                <p>{post.prey}</p>
+              
               </div>
       
             </div>

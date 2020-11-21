@@ -1,0 +1,13 @@
+body {
+    height: 433px;
+    /* background-image:url(); */
+    background-color: lightcoral;
+    background-repeat: no-repeat;
+    background-size: 874px  450px;
+  
+    
+}
+
+bird-card {
+    display: flex;
+}

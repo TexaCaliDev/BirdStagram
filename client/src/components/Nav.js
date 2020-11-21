@@ -1,30 +1,35 @@
 import React , {Component} from 'react'
 import {NavLink} from 'react-router-dom'
+import "../styles/nav.css"
 
 class Nav extends Component {
-    constructor(){
-        super()
-
-    }
+   
 
 
     render(){
         return(
-        <nav>
-            <NavLink to="/users/register">
+        <div>
+            <NavLink className="signup nav" to="/users/register">
                 Sign Up
             </NavLink>
-            <NavLink to="/users/SignIn">
+            <NavLink className="signin nav"  to="/users/SignIn">
                 Sign In
             </NavLink>
-            <NavLink to="/birds">
+            <NavLink
+                activeClassName=" signout nav"
+                to="/users/Signin"
+                onClick={() => localStorage.clear()}
+                >
+                Sign Out
+            </NavLink>
+            <NavLink className=" discover nav" to="/birds">
                 Discover
             </NavLink>
-            <NavLink to="/">
+            <NavLink className=" home nav" to="/">
                 Home
             </NavLink>
             
-        </nav>
+        </div>
            
         )
     }

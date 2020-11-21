@@ -12,10 +12,18 @@ export default class Home extends React.Component {
   
  render(){
      return (
-         <div>
+         <div className="body">
              <Nav />
-            <h2>this is my homepage</h2>
-            <h2>its suppose to be inviting</h2>
+            <h1>
+                Birdstagram
+            </h1>
+            <h3>
+                A place for bird lovers
+            </h3>
+            <h4>
+                sign up or check us out
+            </h4>
+
          </div>
      )
  }

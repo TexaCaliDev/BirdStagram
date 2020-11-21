@@ -5,6 +5,7 @@ export default class UpdatePost extends Component {
   constructor() {
     super()
     this.state = {
+        
       bird_name: '',
       description: '',
       range: '',
@@ -48,10 +49,10 @@ export default class UpdatePost extends Component {
   }
 
   render() {
-    const { bird_name, description, range, prey } = this.state
+    const { bird_name, description,nesting, range, prey } = this.state
     return (
       <div className="upload content">
-          <h1>hi low</h1>
+         
         <form className="flex-col" onSubmit={this.handleSubmit}>
           <TextInput
             placeholder="Bird name"
@@ -75,6 +76,12 @@ export default class UpdatePost extends Component {
             name="prey"
             placeholder="prey"
             value={prey}
+            onChange={this.handleChange}
+          />
+          <TextInput
+            name="nesting"
+            placeholder="nesting"
+            value={nesting}
             onChange={this.handleChange}
           />
           <button>Update</button>

@@ -46,6 +46,9 @@ export default class Profile extends Component {
     return (
       <div className="profile">
         <Nav />
+    <div>
+    
+    </div>
         <div>
          <button onClick={() => this.props.history.push(`/posts/create/user_id`)}>create</button>
           {this.state.posts.length ? (
@@ -60,31 +63,31 @@ export default class Profile extends Component {
                     <div className="mask flex-col">
                       <div className="card-content">
                       
+                        <img src={post.picture} alt={post.bird_name}></img>                    
                         <h3>{post.bird_name}</h3>
-                        <img src="{post.picture}" alt="{post.bird_name"></img>                    
                         <p>{post.description}</p>
                         <p>{post.range}</p>
-                        <p>{post.Prey}</p>
+                        <p>{post.prey}</p>
                         <p>{post.nesting}</p>
+                       
+                          <button
+                            onClick={() =>
+                              this.props.history.push(`/posts/update/${post._id}`)}>
+                            Edit
+                          </button>
+                          <button onClick={() => __DeletePost(post._id)}>
+                            Delete
+                          </button>
+                        
 
                     </div>
                     </div>
-                  </div>
-                  <div className="flex-row button-wrapper">
-                    <button
-                      onClick={() =>
-                        this.props.history.push(`/posts/update/${post._id}`)}>
-                      Edit
-                    </button>
-                    <button onClick={() => __DeletePost(post._id)}>
-                      Delete
-                    </button>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="span message">No Posts</div>
+            <div className="span message">Go ahead , Create a new post</div>
           )}
         </div>
       </div>

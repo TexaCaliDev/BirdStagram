@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import { __UploadPost, } from '../services/PostServices'
+import Nav from '../components/Nav'
+// import "../styles/createPost.css"
 
 export default class CreatePost extends Component {
   constructor() {
@@ -36,45 +38,40 @@ export default class CreatePost extends Component {
     const { bird_name, range,picture,prey,nesting, description } = this.state
     return (
       <div className="upload content">
+        <Nav />
         <form className="flex-col" onSubmit={this.handleSubmit}>
             <TextInput
-              fieldType="textfield"
               placeholder="Picture URL"
               name="picture"
               value={picture}
               onChange={this.handleChange}
             />
           <TextInput
-            fieldType="textfield"
             placeholder="bird_name"
             name="bird_name"
             value={bird_name}
             onChange={this.handleChange}
           />
             <TextInput
-              fieldType="textfield"
               name="description"
-              placeholder="Description"
+              placeholder="description"
               value={description}
               onChange={this.handleChange}
             />
           <TextInput
-            fieldType="textfield"
-            placeholder="Range"
+            placeholder="range"
             name="range"
             value={range}
             onChange={this.handleChange}
           />
           <TextInput
-            fieldType="textfield"
-            placeholder="Nesting"
+            placeholder="nesting"
             name="nesting"
             value={nesting}
             onChange={this.handleChange}
           />
           <TextInput
-            fieldType="textfield"
-            placeholder="Prey"
+            placeholder="prey"
             name="prey"
             value={prey}
             onChange={this.handleChange}
