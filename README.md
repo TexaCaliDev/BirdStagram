@@ -19,6 +19,8 @@ Bird-stagram is a place for people to go if they want to find and post their fav
 [Here](https://lucid.app/lucidchart/94e59b58-89b6-4744-ad19-bc83022767f3/edit) for My File Structure
 <br>
 [Here](https://lucid.app/lucidchart/5724392f-2f96-49f2-b31f-afc29d14d982/edit?page=0_0#?folder_id=home&browser=icon) for my Front-end mockup 
+ <br>
+ [Here](https://lucid.app/lucidchart/547f1cca-02c7-45e6-b395-3e3ad5e260eb/edit?beaconFlowId=DB6EB7F6416D073E&page=0_0#?folder_id=home&browser=icon) for schema setup
 ***
 ### Getting Started
 Start by signing in or signing up. <br>
