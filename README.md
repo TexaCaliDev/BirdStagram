@@ -1,5 +1,5 @@
 # BirdStagram
-An Instagram for Bird-lovers and My GA-SEI P2
+An Instagram for Bird-lovers and My Unit Two Project for General Assembly
 ***
 
 ### Overview
